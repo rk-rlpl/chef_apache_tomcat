@@ -33,7 +33,10 @@ directory '/opt/tomcat' do
 end
 
 # TODO:
-execute 'tar -C /opt/tomcat -xvzf apache-tomcat-8.5.11.tar.gz --strip-components=1 && cd /opt/tomcat'
+execute 'extract apache-tomcat-8 tar to /opt/tomcat' do
+  command 'tar -C /opt/tomcat -xvzf apache-tomcat-8.5.11.tar.gz --strip-components=1 && cd /opt/tomcat'
+  creates '/opt/tomcat'
+end
 
 #TODO
 execute 'chgrp -R tomcat /opt/tomcat'
